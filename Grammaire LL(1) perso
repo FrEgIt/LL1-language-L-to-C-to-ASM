@@ -1,0 +1,70 @@
+_programme_ -> _optDecVariables_ _listeDecFonctions_
+_optDecVariables_ -> _listeDecVariables_ POINT_VIRGULE
+_optDecVariables_ ->
+_listeDecVariables_ -> _declarationVariable_ _listeDecVariablesBis_
+_listeDecVariablesBis_ -> VIRGULE _declarationVariable_ _listeDecVariablesBis_
+_listeDecVariablesBis_ ->
+_declarationVariable_ -> ENTIER ID_VAR _optTailleTableau_
+_optTailleTableau_ -> CROCHET_OUVRANT NOMBRE CROCHET_FERMANT
+_optTailleTableau_ ->
+_listeDecFonctions_ -> _declarationFonction_ _listeDecFonctions_
+_listeDecFonctions_ ->
+_declarationFonction_ -> ID_FCT _listeParam_ _optDecVariables_ _instructionBloc_
+_listeParam_ -> PARENTHESE_OUVRANTE _optListeDecVariables_ PARENTHESE_FERMANTE
+_optListeDecVariables_ -> _listeDecVariables_
+_optListeDecVariables_ ->
+_instruction_ -> _instructionAffect_
+_instruction_ -> _instructionBloc_
+_instruction_ -> _instructionSi_
+_instruction_ -> _instructionTantque_
+_instruction_ -> _instructionAppel_
+_instruction_ -> _instructionRetour_
+_instruction_ -> _instructionEcriture_
+_instruction_ -> _instructionVide_
+_instructionAffect_ -> _var_ EGAL _expression_ POINT_VIRGULE
+_instructionBloc_ -> ACCOLADE_OUVRANTE _listeInstructions_ ACCOLADE_FERMANTE
+_listeInstructions_ -> _instruction_ _listeInstructions_
+_listeInstructions_ ->
+_instructionSi_ -> SI _expression_ ALORS _instructionBloc_ _optSinon_
+_optSinon_ -> SINON _instructionBloc_
+_optSinon_ ->
+_instructionTantque_ -> TANTQUE _expression_ FAIRE _instructionBloc_
+_instructionAppel_ -> _appelFct_ POINT_VIRGULE
+_instructionRetour_ -> RETOUR _expression_ POINT_VIRGULE
+_instructionEcriture_ -> ECRIRE PARENTHESE_OUVRANTE _expression_ PARENTHESE_FERMANTE POINT_VIRGULE
+_instructionVide_ -> POINT_VIRGULE
+_expression_ -> _conjonction_ _expressionBis_
+_expressionBis_ -> OU _conjonction_ _expressionBis_
+_expressionBis_ ->
+_conjonction_ -> _negation_ _conjonctionBis_
+_conjonctionBis_ -> ET _negation_ _conjonctionBis_
+_conjonctionBis_ ->
+_negation_ -> NON _comparaison_
+_negation_ -> _comparaison_
+_comparaison_ -> _expArith_ _comparaisonBis_
+_comparaisonBis_ -> EGAL _expArith_ _comparaisonBis_
+_comparaisonBis_ -> INFERIEUR _expArith_ _comparaisonBis_
+_comparaisonBis_ -> SUPERIEUR _expArith_ _comparaisonBis_
+_comparaisonBis_ ->
+_expArith_ -> _terme_ _expArithBis_
+_expArithBis_ -> PLUS _terme_ _expArithBis_
+_expArithBis_ -> MOINS _terme_ _expArithBis_
+_expArithBis_ ->
+_terme_ -> _facteur_ _termeBis_
+_termeBis_ -> FOIS _facteur_ _termeBis_
+_termeBis_ -> DIVISE _facteur_ _termeBis_
+_termeBis_ -> MODULO _facteur_ _termeBis_
+_termeBis_ ->
+_facteur_ -> PARENTHESE_OUVRANTE _expression_ PARENTHESE_FERMANTE
+_facteur_ -> NOMBRE
+_facteur_ -> _appelFct_
+_facteur_ -> _var_
+_facteur_ -> LIRE PARENTHESE_OUVRANTE PARENTHESE_FERMANTE
+_var_ -> ID_VAR _optIndice_
+_optIndice_ -> CROCHET_OUVRANT _expression_ CROCHET_FERMANT
+_optIndice_ ->
+_appelFct_ -> ID_FCT PARENTHESE_OUVRANTE _listeExpressions_ PARENTHESE_FERMANTE
+_listeExpressions_ -> _expression_ _listeExpressionsBis_
+_listeExpressions_ ->
+_listeExpressionsBis_ -> VIRGULE _expression_ _listeExpressionsBis_
+_listeExpressionsBis_ ->
