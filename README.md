@@ -12,6 +12,10 @@ https://en.wikipedia.org/wiki/MIPS_architecture
 
 https://en.wikipedia.org/wiki/Assembly_language
 
+https://en.wikipedia.org/wiki/Formal_language
+
+https://en.m.wikipedia.org/wiki/LL_grammar
+
 ## Documentation
 
 This implementation is done with C11.
